@@ -1,0 +1,57 @@
+﻿@model Entidad.Salida
+
+@{
+    ViewBag.Title = "Eliminar Salida";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar Salida</h2>
+
+<h3>¿Seguro de querer eliminarlo?</h3>
+<div>
+    @*<h4>Salida</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Empleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleado)
+        </dd>
+
+        <dt>
+            Tipo de Salida
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipoSalida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Motivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Motivo)
+        </dd>
+
+        <dt>
+            Fecha de Salida
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaSalida)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            <a class="btn btn-warning" title="Cancelar" href="@Url.Action("Details")">Cancelar</a>
+        </div>
+    }
+</div>

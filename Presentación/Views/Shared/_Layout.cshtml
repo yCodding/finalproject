@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Gestión de Recursos Humanos</title>
+    @Styles.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .navbar-inverse {
+            background-color: #000000;
+        }
+
+        a.mynav {
+            background-color: #000000;
+        }
+        
+        .mynav_navbar {
+            overflow: hidden;            
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+            .mynav_navbar a {
+                float: left;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+
+
+        .mynav_dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+
+
+            .mynav_dropdown .mynav_dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+
+
+
+            .mynav_navbar a:hover, .mynav_dropdown:hover .mynav_dropbtn {
+                background-color: #1E90FF;
+            }
+
+
+
+        .mynav_dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+
+
+            .mynav_dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+
+
+                .mynav_dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+
+
+
+        .mynav_dropdown:hover .mynav_dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+
+        <div class="container">
+
+            <div class="navbar-header">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Recursos Humanos</a>
+            </div>
+
+            <div class="mynav_navbar">
+                @Html.ActionLink("Inicio", "Index", "Home")
+                @Html.ActionLink("Empleados", "Details", "Home")
+                @Html.ActionLink("Departamentos", "Details", "Department")
+                @Html.ActionLink("Cargos", "Details", "Cargos")
+                <div class="mynav_dropdown">
+                    <button class="mynav_dropbtn">
+                        Procesos
+                    </button>
+                    <div class="mynav_dropdown-content">
+                        @Html.ActionLink("Nóminas", "Details", "Nominas")
+                        @Html.ActionLink("Salidas", "Details", "Salida")
+                        @Html.ActionLink("Licencias", "Details", "Licencia")
+                        @Html.ActionLink("Vacaciones", "Details", "Vacaciones")
+                        @Html.ActionLink("Permisos", "Details", "Permisos")
+                    </div>                    
+                </div>
+                <div class="mynav_dropdown">
+                    <button class="mynav_dropbtn">
+                        Informes
+                    </button>
+                    <div class="mynav_dropdown-content">
+                        @Html.ActionLink("Nóminas", "Details", "Nominas")
+                        @Html.ActionLink("Empleados Activos", "Activos", "Informes")
+                        @Html.ActionLink("Empleados Inactivos", "Inactivos", "Informes")
+                        @Html.ActionLink("Departamentos", "Details", "Department")
+                        @Html.ActionLink("Cargos", "Details", "Cargos")
+                        @Html.ActionLink("Entrada de Empleado", "Entrada", "Informes")
+                        @Html.ActionLink("Salida de Empleado", "Salida", "Informes")
+                        @Html.ActionLink("Permisos", "Permiso", "Informes")
+                    </div>
+                </div>
+            </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Gestión de Recursos Humanos</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

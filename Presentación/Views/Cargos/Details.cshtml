@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Presentación.Models.Cargos>
+
+@{
+    ViewBag.Title = "Listado de Cargos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listado de Cargos</h2>
+<p>
+    <a class="btn btn-success" title="Crear" href="@Url.Action("Create")"><i class="glyphicon glyphicon-plus"></i> Crear cargo</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Nombre del Cargo
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargo)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "btn btn-info glyphicon glyphicon-edit" })
+                @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "btn btn-danger glyphicon glyphicon-trash" })
+            </td>
+        </tr>
+    }
+
+</table>
+@using (Html.BeginForm("Details", "Cargos", FormMethod.Get))
+{
+    <input type="text" class="form-control" name="nombre" placeholder="Buscar" />
+}
+

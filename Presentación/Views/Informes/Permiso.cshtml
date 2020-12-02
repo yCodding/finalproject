@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Permisos de Empleados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.items;
+}
+
+<h2>Permisos de Empleados</h2>
+
+<form action="Permisos" method="post">
+    @Html.DropDownList("nombre", items, "--Seleccionar Empleado--", new { @class = "form-control", @name = "nombre", @id= "nombre"})
+    <input type="submit" value="Buscar" class="btn btn-danger" />
+</form>
+

@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Presentación.Models.Empleados>
+
+@{
+    ViewBag.Title = "Listado de Empleados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listado de Empleados</h2>
+<p>
+    <a class="btn btn-success" title="Crear" href="@Url.Action("Create")"><i class="glyphicon glyphicon-plus"></i> Crear empleado</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Código del Empleado
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Apellido
+        </th>
+        <th>
+            Teléfono
+        </th>
+        <th>
+            Fecha de Ingreso
+        </th>
+        <th>
+            Salario
+        </th>
+        <th>
+            Estatus
+        </th>
+        <th>
+            Departamento
+        </th>
+        <th>
+            Cargo
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID)
+    </td>
+    <td align="center">
+        @Html.DisplayFor(modelItem => item.Codigo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Apellido)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Telefono)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fechaIngreso)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Salario)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Estatus)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Departamentos.Nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cargos.Cargo)
+    </td>
+    <td>
+        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "btn btn-info glyphicon glyphicon-edit" })
+        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "btn btn-danger glyphicon glyphicon-trash" })
+    </td>
+</tr>
+    }
+</table>
+@using (Html.BeginForm("Details", "Home", FormMethod.Get))
+{
+<input type="text" class="form-control" name="nombre" placeholder="Buscar" />
+}
+

@@ -1,0 +1,57 @@
+﻿@model Entidad.CNomina
+
+@{
+    ViewBag.Title = "Eliminar Nómina";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar Nómina</h2>
+
+<h3>¿Seguro de querer eliminar la Nómina?</h3>
+<div>
+    @*<h4>CNomina</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Año)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Año)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mes)
+        </dd>
+
+        <dt>
+            Monto Total
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.montoTotal)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            <a class="btn btn-warning" title="Cancelar" href="@Url.Action("Details")">Cancelar</a>
+        </div>
+        
+    }
+</div>

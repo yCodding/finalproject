@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1541809841c54044b40923a8d9e0baed" Name="Diagram1">
+        <EntityTypeShape EntityType="PFCapasModel.Cargos" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="PFCapasModel.CNomina" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PFCapasModel.Departamentos" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="PFCapasModel.Empleados" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="PFCapasModel.Licencias" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="PFCapasModel.Permisos" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="PFCapasModel.Salida" Width="1.5" PointX="4.75" PointY="6.75" />
+        <EntityTypeShape EntityType="PFCapasModel.Vacaciones" Width="1.5" PointX="6.75" PointY="6.75" />
+        <AssociationConnector Association="PFCapasModel.FK__Empleados__Cargo__3864608B" />
+        <AssociationConnector Association="PFCapasModel.FK__Empleados__Depar__37703C52" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

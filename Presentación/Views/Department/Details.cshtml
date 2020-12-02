@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Presentación.Models.Departamentos>
+
+@{
+    ViewBag.Title = "Listado de Departamentos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listado de Departamentos</h2>
+<p>
+    <a class="btn btn-success" title="Crear" href="@Url.Action("Create")"><i class="glyphicon glyphicon-plus"></i> Crear departamento</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Código del Departamento
+        </th>
+        <th>
+            Nombre del Departamento
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Codigo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nombre)
+    </td>
+    <td>
+        @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "btn btn-info glyphicon glyphicon-edit" })
+        @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "btn btn-danger glyphicon glyphicon-trash" })
+    </td>
+</tr>
+    }
+
+</table>
+@using (Html.BeginForm("Details", "Department", FormMethod.Get))
+{
+    <input type="text" class="form-control" name="nombre" placeholder="Buscar" />
+}
+

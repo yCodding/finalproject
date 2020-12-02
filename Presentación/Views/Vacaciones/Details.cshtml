@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Presentación.Models.Vacaciones>
+
+@{
+    ViewBag.Title = "Listado de Vacaciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listado de Vacaciones</h2>
+
+<p>
+    <a class="btn btn-success" title="Crear" href="@Url.Action("Create")"><i class="glyphicon glyphicon-plus"></i> Crear vacaciones</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Empleado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Desde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hasta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Correspondiente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empleado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hasta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correspondiente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comentarios)
+            </td>
+            <td>
+                @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "btn btn-info glyphicon glyphicon-edit" })
+                @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "btn btn-danger glyphicon glyphicon-trash" })
+            </td>
+        </tr>
+    }
+
+</table>
+@using (Html.BeginForm("Details", "Home", FormMethod.Get))
+{
+    <input type="text" class="form-control" name="nombre" placeholder="Buscar" />
+}
