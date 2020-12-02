@@ -1,2 +1,2 @@
-# finaliproject
-Final Project using Shapes + MVC // C#
+# My Final Project
+This is my final Project using Shapes + MVC // C#
